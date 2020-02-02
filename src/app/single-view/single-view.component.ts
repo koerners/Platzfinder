@@ -43,7 +43,7 @@ export class SingleViewComponent implements OnInit {
 
       }
 
-      this.apiService.getBib(this.suche, 100).subscribe((res: any) => {
+      this.apiService.getBib(this.suche, 75).subscribe((res: any) => {
         for ( const prop in res ) {
           const datetime = this.parseDate(res[prop][1], res[prop][2]);
           this.data.push(
@@ -51,9 +51,7 @@ export class SingleViewComponent implements OnInit {
             [datetime, parseInt(res[prop][4])],
           );
         }
-
         this.loading = false;
-
       });
 
 
@@ -72,6 +70,7 @@ export class SingleViewComponent implements OnInit {
   options = {
     legend: {position: 'bottom', maxLines: 3},
     animation: {startup: 'true'},
+    chartArea: {width: '100%', height: '80%'},
 
   };
   width = 900;
