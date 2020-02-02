@@ -1,0 +1,51 @@
+
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1 style="color:white">LMU Platzfinder</h1>
+    <span class="menu-spacer"></span>
+    <div *ngIf="!isMobileLayout">
+      <div>
+        <a mat-button [routerLink]="'/'"> Home </a>
+
+      </div>
+    </div>
+
+
+
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+
+
+<router-outlet></router-outlet>
+
+
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+
+      <a [routerLink]="'/'" mat-list-item> <i class="material-icons">dashboard</i> Dashboard </a>
+      <a [routerLink]="'/view/1'" mat-list-item> <i class="material-icons">school</i> Allgemeiner Lesesaal </a>
+      <a [routerLink]="'/view/2'" mat-list-item> <i class="material-icons">school</i>Philologicum</a>
+      <a [routerLink]="'/view/3'" mat-list-item> <i class="material-icons">school</i>Historicum</a>
+
+
+      <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Close</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
