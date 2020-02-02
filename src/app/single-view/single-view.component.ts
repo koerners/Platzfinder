@@ -9,9 +9,11 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./single-view.component.css']
 })
 export class SingleViewComponent implements OnInit {
+  private isMobileLayout: boolean;
 
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {
+
 
     this.route.params.subscribe(params => {
 
@@ -84,6 +86,13 @@ export class SingleViewComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.isMobileLayout = window.innerWidth <= 991;
+    window.onresize = () => this.isMobileLayout = window.innerWidth <= 991;
+
+    if(this.isMobileLayout){
+      this.width = 375;
+    }
 
 
   }
