@@ -16,33 +16,29 @@ export class DashboardComponent implements OnInit {
   constructor(private apiService: ApiService, private route: ActivatedRoute) {
 
 
-          this.data = [];
-          this.loading = true;
-          this.suche = 'AllgemeinerLesesaal(Zentralbibliothek)';
-          this.title = 'Allgemeiner Lesesaal (ZB)';
-
-
-      this.apiService.getBib(this.suche, 75).subscribe((res: any) => {
-        for ( const prop in res ) {
-          const datetime = this.parseDate(res[prop][1], res[prop][2]);
-          this.data.push(
-            // tslint:disable-next-line:radix
-            [datetime, parseInt(res[prop][4])],
-          );
-        }
-        this.loading = false;
-      });
-
-
+    this.apiService.getAll().subscribe((res: any) => {
+      for (const prop in res) {
+        const datetime = this.parseDate(res[prop][1], res[prop][2]);
+        this.data.push(
+          // tslint:disable-next-line:radix
+          [datetime, parseInt(res[prop][4])],
+        );
+      }
+      this.loading = false;
+    });
 
   }
+
+
+
+
 
   // @ts-ignore
   @ViewChild('chart')
   chart: GoogleChartComponent;
 
   title = '';
-  type = 'AreaChart';
+  type = 'Line';
   data = [];
   columnNames = ['', 'Auslastung in %'];
   options = {
