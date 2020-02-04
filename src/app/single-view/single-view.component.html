@@ -17,13 +17,10 @@
             <div class="container-fluid">
 
 
-              <div [innerHTML]="svg" class="svg"></div>
+              <div [innerHTML]="svgCurrent" class="svg"></div>
 
 
             </div>
-
-
-
 
 
             </div>
@@ -36,6 +33,90 @@
           <div class="card-header">
             Information      </div>
           <div class="card-body">
+
+            <div class="container-fluid">
+
+              <div *ngIf="bib.open">
+
+              <div *ngIf="!bib.warning" class="card text-white bg-success mb-2" style="width: 100%;" >
+                <div class="card-header"><i class="material-icons">local_library</i>
+                   Current Status</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm">
+                      Available seats:<br> {{bib.frei}}%
+                    </div>
+                    <div class="col-sm">
+                      <div *ngIf="bib.beschraenkt == 0">
+                        <i class="material-icons">thumb_up_alt</i><br>
+                        Open to public
+                      </div>
+                      <div *ngIf="bib.beschraenkt == 1">
+                        <i class="material-icons">error</i><br>
+                        Faculty only
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div *ngIf="bib.warning" class="card text-white  bg-danger mb-2" style="width: 100%;">
+                <div class="card-header"><i class="material-icons">local_library</i>
+                  Current Status</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm">
+                      Available seats:<br> {{bib.frei}}%
+                    </div>
+                    <div class="col-sm">
+                      <div *ngIf="bib.beschraenkt == 0">
+                        <i class="material-icons">thumb_up_alt</i><br>
+                        Open to public
+                      </div>
+                      <div *ngIf="bib.beschraenkt == 1">
+                        <i class="material-icons">error</i><br>
+                        Faculty only
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              </div>
+
+              <div *ngIf="!bib.open">
+
+                <div class="card text-white  bg-danger mb-2" style="width: 100%;">
+                  <div class="card-header"><i class="material-icons">local_library</i>
+                    Current Status</div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm">
+                        <h4>Closed</h4>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+              </div>
 
           </div>
         </div>

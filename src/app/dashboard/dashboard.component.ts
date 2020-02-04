@@ -19,7 +19,7 @@ class Bib {
 export class DashboardComponent implements OnInit {
 
   public isMobileLayout: boolean;
-  svg: SafeHtml;
+  svgCurrentAll: SafeHtml;
   public loadedBibs: any;
   public currentBibs = [];
   public lastUpdate: any;
@@ -41,12 +41,10 @@ export class DashboardComponent implements OnInit {
         this.currentBibs[i] = bib;
       }
 
-
-      console.log(this.currentBibs);
-      })
+     });
 
     this.apiService.getCurrentAll().subscribe((res: any) => {
-        this.svg = this.sanitizer.bypassSecurityTrustHtml(res);
+        this.svgCurrentAll = this.sanitizer.bypassSecurityTrustHtml(res);
       })
 
     };
