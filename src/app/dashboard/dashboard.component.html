@@ -1,50 +1,103 @@
-<div  align="center">
+<div align="center">
 
 
   <div class="container-fluid">
-<br>
+    <br>
     <h1 class="display-4">Overview</h1>
-<br>
+    <br>
 
-  <div class="row">
+    <div class="row">
 
-  <div class="col-md-8 col-xs">
-    <div class="shadow-sm card">
-      <div class="card-header">
-        Last 24 hours      </div>
-      <div class="card-body">
-        <div class="container-fluid">
+      <div class="col-md-8 col-xs">
+        <div class="shadow-sm card">
+          <div class="card-header">
+            Last hours
+          </div>
+          <div class="card-body">
+            <div class="container-fluid">
 
 
-                    <div class="svg" [innerHTML]="svg"></div>
+              <div [innerHTML]="svg" class="svg"></div>
 
+
+            </div>
+
+
+          </div>
 
         </div>
+      </div>
+      <div class="col-md-4 col-xs">
+        <div class="shadow-sm card">
+          <div class="card-header">
+            Current capacity
+          </div>
+          <div class="card-body">
+            <div class="container-fluid">
+
+              <div *ngFor="let bib of currentBibs" class="row">
+
+                <div *ngIf="!bib.warning" class="card text-white bg-success mb-2" style="width: 100%;">
+                  <div class="card-header"><i class="material-icons">local_library</i>
+                    {{bib.nameBib}}</div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm">
+                        Available seats:<br> {{bib.frei}}%
+                      </div>
+                      <div class="col-sm">
+                        <div *ngIf="bib.beschraenkt == 0">
+                          <i class="material-icons">thumb_up_alt</i><br>
+                          Open to public
+                        </div>
+                        <div *ngIf="bib.beschraenkt == 1">
+                          <i class="material-icons">error</i><br>
+                          Faculty only
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <button class="btn btn-light" type="button">See more</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
+
+
+                <div *ngIf="bib.warning" class="card text-white  bg-danger mb-2" style="width: 100%;">
+                  <div class="card-header"><i class="material-icons">local_library</i>
+                    {{bib.nameBib}}</div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm">
+                        Available seats:<br> {{bib.frei}}%
+                      </div>
+                      <div class="col-sm">
+                        <div *ngIf="bib.beschraenkt == 0">
+                          <i class="material-icons">thumb_up_alt</i><br>
+                          Open to public
+                        </div>
+                        <div *ngIf="bib.beschraenkt == 1">
+                          <i class="material-icons">error</i><br>
+                          Faculty only
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <button class="btn btn-light" type="button">See more</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+         <p>Last update: {{lastUpdate}}</p>  <br> <br>
+        </div>
 
       </div>
 
-</div>
-  </div>
-  <div class="col-md-4 col-xs">
-    <div class="shadow-sm card">
-      <div class="card-header">
-        Current capacity      </div>
-      <div class="card-body">
 
-
-
-
-
-
-
-      </div>
-  </div>
-  </div>
-  </div>
-
-  </div>
-
-
-</div>
+    </div>

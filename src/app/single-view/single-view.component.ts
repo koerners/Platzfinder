@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {GoogleChartComponent} from 'angular-google-charts';
 import {ApiService} from '../api.service';
 import {ActivatedRoute} from '@angular/router';
+import {SafeHtml} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-single-view',
@@ -10,6 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class SingleViewComponent implements OnInit {
   private isMobileLayout: boolean;
+  svg: SafeHtml;
+  title: any;
 
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {
