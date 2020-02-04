@@ -14,10 +14,11 @@
             Last hours
           </div>
           <div class="card-body">
-            <div class="container-fluid">
+            <div class="container-fluid" >
 
-
-              <div [innerHTML]="svgCurrentAll" class="svg"></div>
+              <pinch-zoom>
+                <div [innerHTML]="svgCurrentAll" class="svg"></div>
+              </pinch-zoom>
 
 
             </div>
@@ -34,6 +35,8 @@
           </div>
           <div class="card-body">
             <div class="container-fluid">
+
+              <div *ngIf="afterEight">
 
               <div *ngFor="let bib of currentBibs" class="row">
 
@@ -92,6 +95,30 @@
 
 
               </div>
+
+              </div>
+
+              <div *ngIf="!afterEight">
+
+                <div class="card text-white  bg-danger mb-2" style="width: 100%;">
+                  <div class="card-header"><i class="material-icons">local_library</i>
+                    Current Status</div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm">
+                        <h4>All libraries are closed!</h4>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+
+
             </div>
           </div>
          <p>Last update: {{lastUpdate}}</p>  <br> <br>

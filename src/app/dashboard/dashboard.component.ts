@@ -16,6 +16,8 @@ class Bib {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
 export class DashboardComponent implements OnInit {
 
   public isMobileLayout: boolean;
@@ -23,8 +25,14 @@ export class DashboardComponent implements OnInit {
   public loadedBibs: any;
   public currentBibs = [];
   public lastUpdate: any;
+  afterEight: boolean;
+
+
 
   constructor(private apiService: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
+    const d = new Date();
+    const hour = d.getHours();
+    this.afterEight = (hour >7);
 
     this.apiService.getStatus().subscribe((res: any) => {
       this.loadedBibs = res;

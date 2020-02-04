@@ -22,6 +22,7 @@ export class SingleViewComponent implements OnInit {
   svgCurrent: SafeHtml;
   title: any;
   bib: Bib;
+  public lastUpdate: any;
 
 
   constructor(private apiService: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
@@ -29,6 +30,8 @@ export class SingleViewComponent implements OnInit {
     this.bib = new Bib();
     this.bib.open = false;
 
+    const d = new Date();
+    const hour = d.getHours();
 
 
     this.route.params.subscribe(params => {
@@ -43,6 +46,8 @@ export class SingleViewComponent implements OnInit {
       this.apiService.getStatus().subscribe((res: any) => {
         let loadedBibs = res;
         var i;
+        this.lastUpdate = loadedBibs[0][4]
+
         for (i = 0; i < loadedBibs.length; i++) {
 
           if (loadedBibs[i][0] === this.title) {
@@ -51,7 +56,7 @@ export class SingleViewComponent implements OnInit {
             this.bib.frei = loadedBibs[i][2];
             this.bib.beschraenkt = loadedBibs[i][3];
             this.bib.warning = (this.bib.frei < 20);
-            this.bib.open = true;
+            if (hour > 7 ) this.bib.open = true;
           }
 
         }
