@@ -17,8 +17,8 @@ export class ApiService {
   public getStatus() {
     return this.httpClient.get(this.apiURL+'/status' , {responseType: 'json'});
   }
-  public getBib(name: string, entries: number) {
-    return this.httpClient.get(this.apiURL + '/bib/' + name + '/' + entries, {responseType: 'json'});
+  public getBib(name: string, entries: string) {
+    return this.httpClient.get(this.apiURL + '/bib/' + name + '/' + entries, {responseType: 'text'});
   }
 
   public getCurrentAll() {
