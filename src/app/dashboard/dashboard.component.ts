@@ -18,11 +18,11 @@ class Bib {
 })
 export class DashboardComponent implements OnInit {
 
-  private isMobileLayout: boolean;
+  public isMobileLayout: boolean;
   svg: SafeHtml;
-  private loadedBibs: any;
-  private currentBibs = [];
-  private lastUpdate: any;
+  public loadedBibs: any;
+  public currentBibs = [];
+  public lastUpdate: any;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
 
