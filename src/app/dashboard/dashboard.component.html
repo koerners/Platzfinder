@@ -13,17 +13,15 @@
       <div class="card-header">
         Last 24 hours      </div>
       <div class="card-body">
+        <div class="container-fluid">
 
-        <div *ngIf="!loading" style="width: 95%;">
-          <google-chart  #chart
-                         [title]="title"
-                         [type]="type"
-                         [data]="data"
-                         [columnNames]="columnNames"
-                         [options]="options"
-                         [height]="height">
-          </google-chart>
+
+                    <div class="svg" [innerHTML]="svg"></div>
+
+
         </div>
+
+
 
       </div>
 
@@ -34,27 +32,13 @@
       <div class="card-header">
         Current capacity      </div>
       <div class="card-body">
-    <div id="content" class="content content-standard" >
-    <div class="user-html hauptinhalt">
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=als" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=cip1" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=cip2" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=bio" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=biolehr" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=cup" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=beg" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=geo" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=histo" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=kuwi" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=mathe" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=ml" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=phil" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=psycho" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=theo" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=wiwi" frameborder="0" align="aus"></iframe></p>
-      <p><iframe marginheight="0" style="width: 100%; height: 47px; border: none;" scrolling="no" name="test" marginwidth="0" src="https://auslastung.ub.uni-muenchen.de/index.php?r=site/grafik&amp;user=kgh" frameborder="0" align="aus"></iframe></p>
-    </div>
-  </div>
+
+
+
+
+
+
+
       </div>
   </div>
   </div>

@@ -6,19 +6,23 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-   apiURL = 'http://35.207.100.41:8080';
-  // apiURL = 'http://localhost:8080';
+   // apiURL = 'http://35.207.100.41:8080';
+   apiURL = 'http://localhost:8080';
 
 
   constructor(private httpClient: HttpClient) {
   }
 
 
-  public getAll() {
-    return this.httpClient.get(this.apiURL , {responseType: 'json'});
+  public getStatus() {
+    return this.httpClient.get(this.apiURL+'/status' , {responseType: 'json'});
   }
   public getBib(name: string, entries: number) {
     return this.httpClient.get(this.apiURL + '/bib/' + name + '/' + entries, {responseType: 'json'});
+  }
+
+  public getCurrentAll() {
+    return this.httpClient.get(this.apiURL + '/allGraph', {responseType: 'text'});
   }
 
 
