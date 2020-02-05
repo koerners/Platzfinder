@@ -3,7 +3,7 @@
 
   <div class="container-fluid">
     <br>
-    <h1  class="display-4">{{bib.nameBib}}</h1>
+    <h2>{{bib.nameBib}}</h2>
 
     <br>
 
@@ -18,7 +18,7 @@
             <div class="container-fluid">
 
               <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-                <div class="svg" >
+                <div class="svg">
                   <div *ngIf="isMobileLayout" style="height: 30px"></div>
                   <div  [innerHTML]="svgCurrent" ></div>
                 </div>
@@ -33,7 +33,7 @@
           </div>
 
         </div>
-      <div class="col-md-4 col-xs"  style=" z-index: 1; position:relative;">>
+      <div class="col-md-4 col-xs"  style=" z-index: 1; position:relative;">
         <div class="shadow-sm card">
           <div class="card-header">
             Information      </div>

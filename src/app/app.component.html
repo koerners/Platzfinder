@@ -34,26 +34,24 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
-      <a [routerLink]="'/'" mat-list-item> <i class="material-icons">dashboard</i> Dashboard </a>
-      <a [routerLink]="'/view/AllgemeinerLesesaal(Zentralbibliothek)'" mat-list-item> <i class="material-icons">account_balance</i> Allgemeiner Lesesaal (Zentralbibliothek)</a>
-      <a [routerLink]="'/view/Cip-Pool1(Zentralbibliothek)'" mat-list-item> <i class="material-icons">account_balance</i> Cip-Pool 1 (Zentralbibliothek)</a>
-      <a [routerLink]="'/view/Cip-Pool2(Zentralbibliothek)'" mat-list-item> <i class="material-icons">account_balance</i>Cip-Pool 2 (Zentralbibliothek) </a>
-      <a [routerLink]="'/view/FBKunstwissenschaften'" mat-list-item> <i class="material-icons">account_balance</i>FB Kunstwissenschaften </a>
-      <a [routerLink]="'/view/FBMedizinischeLesehalle'" mat-list-item> <i class="material-icons">account_balance</i>FB MedizinischeLesehalle </a>
-      <a [routerLink]="'/view/FBHistoricum'" mat-list-item> <i class="material-icons">account_balance</i> FB Historicum </a>
-      <a [routerLink]="'/view/FBEnglischerGarten'" mat-list-item> <i class="material-icons">account_balance</i>FB EnglischerGarten </a>
-      <a [routerLink]="'/view/FBPhilologicum'" mat-list-item> <i class="material-icons">account_balance</i> FB Philologicum</a>
-      <a [routerLink]="'/view/FBTheologieundPhilosophie'" mat-list-item> <i class="material-icons">account_balance</i>FB Theologie und Philosophie </a>
-      <a [routerLink]="'/view/FBWirtschaftswissenschaftenundStatistik'" mat-list-item> <i class="material-icons">account_balance</i>FB Wirtschaftswissenschaften und Statistik </a>
-      <a [routerLink]="'/view/FBMathematikundPhysik'" mat-list-item> <i class="material-icons">account_balance</i> FB Mathematik und Physik</a>
-      <a [routerLink]="'/view/FBChemieundPharmazie'" mat-list-item> <i class="material-icons">account_balance</i>FB Chemie und Pharmazie </a>
-      <a [routerLink]="'/view/FBGeowissenschaften '" mat-list-item> <i class="material-icons">account_balance</i> FB Geowissenschaften</a>
-      <a [routerLink]="'/view/FBPsychologie'" mat-list-item> <i class="material-icons">account_balance</i>FB Psychologie </a>
-      <a [routerLink]="'/view/WissenschaftlicheBibliothekKlinikumGroßhadern'" mat-list-item> <i class="material-icons">account_balance</i>Wissenschaftliche Bibliothek Klinikum Großhadern </a>
-      <a [routerLink]="'/view/FBBiologieundBiomedizin(Präsenzbestand)'" mat-list-item> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Präsenzbestand) </a>
-      <a [routerLink]="'/view/FBBiologieundBiomedizin(Lehrbuchsammlung)'" mat-list-item> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Lehrbuchsammlung)" </a>
-
-
+      <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Dashboard </a>
+      <a [routerLink]="'/view/AllgemeinerLesesaal(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Allgemeiner Lesesaal (Zentralbibliothek)</a>
+      <a [routerLink]="'/view/Cip-Pool1(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Cip-Pool 1 (Zentralbibliothek)</a>
+      <a [routerLink]="'/view/Cip-Pool2(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>Cip-Pool 2 (Zentralbibliothek) </a>
+      <a [routerLink]="'/view/FBKunstwissenschaften'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Kunstwissenschaften </a>
+      <a [routerLink]="'/view/FBMedizinischeLesehalle'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB MedizinischeLesehalle </a>
+      <a [routerLink]="'/view/FBHistoricum'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> FB Historicum </a>
+      <a [routerLink]="'/view/FBEnglischerGarten'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB EnglischerGarten </a>
+      <a [routerLink]="'/view/FBPhilologicum'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> FB Philologicum</a>
+      <a [routerLink]="'/view/FBTheologieundPhilosophie'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Theologie und Philosophie </a>
+      <a [routerLink]="'/view/FBWirtschaftswissenschaftenundStatistik'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Wirtschaftswissenschaften und Statistik </a>
+      <a [routerLink]="'/view/FBMathematikundPhysik'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> FB Mathematik und Physik</a>
+      <a [routerLink]="'/view/FBChemieundPharmazie'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Chemie und Pharmazie </a>
+      <a [routerLink]="'/view/FBGeowissenschaften '" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> FB Geowissenschaften</a>
+      <a [routerLink]="'/view/FBPsychologie'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Psychologie </a>
+      <a [routerLink]="'/view/WissenschaftlicheBibliothekKlinikumGroßhadern'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>Wissenschaftliche Bibliothek Klinikum Großhadern </a>
+      <a [routerLink]="'/view/FBBiologieundBiomedizin(Präsenzbestand)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Präsenzbestand) </a>
+      <a [routerLink]="'/view/FBBiologieundBiomedizin(Lehrbuchsammlung)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Lehrbuchsammlung)" </a>
 
       <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Close</a>
 
