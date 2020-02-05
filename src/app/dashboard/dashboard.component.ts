@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit {
   public lastUpdate: any;
   afterEight: boolean;
   zoomProperties: any;
+  svgCurrentToday: any;
+  svgCurrentOcc: any;
 
 
 
@@ -59,12 +61,23 @@ export class DashboardComponent implements OnInit {
 
     });
 
+
+    this.apiService.getCurrentAvg().subscribe((res: any) => {
+      this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
+
+    });
+
+
+    this.apiService.getBarCurrent().subscribe((res: any) => {
+      this.svgCurrentOcc = this.sanitizer.bypassSecurityTrustHtml(res);
+
+    });
+
     this.apiService.getCurrentAll().subscribe((res: any) => {
-        this.svgCurrentAll = this.sanitizer.bypassSecurityTrustHtml(res);
+      this.svgCurrentAll = this.sanitizer.bypassSecurityTrustHtml(res);
 
+    });
 
-
-    })
 
     };
 

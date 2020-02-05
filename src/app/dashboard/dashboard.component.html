@@ -11,7 +11,7 @@
       <div class="col-md-8 col-xs">
         <div class="shadow-sm card">
           <div class="card-header">
-            Last hours
+            Average occupancy today
           </div>
           <div class="card-body">
             <div class="container-fluid" >
@@ -19,17 +19,57 @@
               <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
                 <div class="svg" >
                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
-                      <div  [innerHTML]="svgCurrentAll" ></div>
+                      <div  [innerHTML]="svgCurrentToday" ></div>
                 </div>
               </pinch-zoom>
-
-
             </div>
-
-
           </div>
-
         </div>
+
+
+
+        <div *ngIf="afterEight" class="shadow-sm card">
+          <div class="card-header">
+            Current occupancy
+          </div>
+          <div class="card-body">
+            <div class="container-fluid" >
+
+              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+                <div class="svg" >
+                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
+                  <div  [innerHTML]="svgCurrentOcc" ></div>
+                </div>
+              </pinch-zoom>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="shadow-sm card">
+          <div class="card-header">
+            Occupancy by library
+          </div>
+          <div class="card-body">
+            <div class="container-fluid" >
+
+              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+                <div class="svg" >
+                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
+                  <div  [innerHTML]="svgCurrentAll" ></div>
+                </div>
+              </pinch-zoom>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
       </div>
       <div class="col-md-4 col-xs" style=" z-index: 1; position:relative;">
         <div class="shadow-sm card">

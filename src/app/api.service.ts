@@ -25,6 +25,12 @@ export class ApiService {
     return this.httpClient.get(this.apiURL + '/allGraph', {responseType: 'text'});
   }
 
+  public getBarCurrent() {
+    return this.httpClient.get(this.apiURL + '/currentBar', {responseType: 'text'});
+  }
+  public getCurrentAvg() {
+    return this.httpClient.get(this.apiURL + '/currentAvg', {responseType: 'text'});
+  }
 
 
 }
