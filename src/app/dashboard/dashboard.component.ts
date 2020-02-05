@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
   public currentBibs = [];
   public lastUpdate: any;
   afterEight: boolean;
+  zoomProperties: any;
 
 
 
@@ -33,6 +34,9 @@ export class DashboardComponent implements OnInit {
     const d = new Date();
     const hour = d.getHours();
     this.afterEight = (hour >7);
+
+
+
 
     this.apiService.getStatus().subscribe((res: any) => {
       this.loadedBibs = res;
@@ -49,19 +53,30 @@ export class DashboardComponent implements OnInit {
         this.currentBibs[i] = bib;
       }
 
-     });
+
+
+    });
 
     this.apiService.getCurrentAll().subscribe((res: any) => {
         this.svgCurrentAll = this.sanitizer.bypassSecurityTrustHtml(res);
-      })
+
+
+
+    })
 
     };
 
 
-  ngOnInit() {
 
+
+  ngOnInit() {
     this.isMobileLayout = window.innerWidth <= 991;
     window.onresize = () => this.isMobileLayout = window.innerWidth <= 991;
+    if(this.isMobileLayout){
+      this.zoomProperties= {backgroundColor: "white",  zoomControlScale: "3.1", overflow: "visible"};
+    }else {
+      this.zoomProperties= {backgroundColor: "white"};
+    }
 
 
   }

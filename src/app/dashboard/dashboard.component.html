@@ -16,8 +16,11 @@
           <div class="card-body">
             <div class="container-fluid" >
 
-              <pinch-zoom>
-                <div [innerHTML]="svgCurrentAll" class="svg"></div>
+              <pinch-zoom [properties]="zoomProperties">
+                <div class="svg" >
+                 <div *ngIf="isMobileLayout" style="height: 30px"></div>
+                      <div  [innerHTML]="svgCurrentAll" ></div>
+                </div>
               </pinch-zoom>
 
 
@@ -28,7 +31,7 @@
 
         </div>
       </div>
-      <div class="col-md-4 col-xs">
+      <div class="col-md-4 col-xs" style=" z-index: -1; position:relative;">
         <div class="shadow-sm card">
           <div class="card-header">
             Current capacity

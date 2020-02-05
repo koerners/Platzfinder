@@ -18,11 +18,13 @@ class Bib {
   styleUrls: ['./single-view.component.css']
 })
 export class SingleViewComponent implements OnInit {
-  private isMobileLayout: boolean;
+   isMobileLayout: boolean;
   svgCurrent: SafeHtml;
   title: any;
   bib: Bib;
   public lastUpdate: any;
+  zoomProperties: any;
+
 
 
   constructor(private apiService: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
@@ -74,7 +76,11 @@ export class SingleViewComponent implements OnInit {
 
     this.isMobileLayout = window.innerWidth <= 991;
     window.onresize = () => this.isMobileLayout = window.innerWidth <= 991;
-
+    if(this.isMobileLayout){
+      this.zoomProperties= {backgroundColor: "white",  zoomControlScale: "3.1", overflow: "visible"};
+    }else {
+      this.zoomProperties= {backgroundColor: "white"};
+    }
 
 
   }

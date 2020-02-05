@@ -3,7 +3,8 @@
 
   <div class="container-fluid">
     <br>
-    <h1 class="display-4">{{this.title}}</h1>
+    <h1  class="display-4">{{this.title}}</h1>
+
     <br>
 
     <div class="row">
@@ -16,9 +17,11 @@
 
             <div class="container-fluid">
 
-              <pinch-zoom>
-
-              <div [innerHTML]="svgCurrent" class="svg"></div>
+              <pinch-zoom [properties]="zoomProperties">
+                <div class="svg" >
+                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
+                  <div  [innerHTML]="svgCurrent" ></div>
+                </div>
               </pinch-zoom>
 
 
@@ -30,7 +33,7 @@
           </div>
 
         </div>
-      <div class="col-md-4 col-xs">
+      <div class="col-md-4 col-xs"  style=" z-index: -1; position:relative;">>
         <div class="shadow-sm card">
           <div class="card-header">
             Information      </div>
