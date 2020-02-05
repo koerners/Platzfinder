@@ -87,6 +87,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.isMobileLayout = window.innerWidth <= 991;
     window.onresize = () => this.isMobileLayout = window.innerWidth <= 991;
+
+
     if(this.isMobileLayout){
       this.zoomProperties= {backgroundColor: "white",  zoomControlScale: "3.1", overflow: "visible", 'double-tap-scale':"3.1", disableZoomControl: "never"};
     }else {

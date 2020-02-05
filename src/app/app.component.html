@@ -9,7 +9,7 @@
     <span class="menu-spacer"></span>
     <div *ngIf="!isMobileLayout">
       <div>
-        <a mat-button [routerLink]="'/'"> Home </a>
+        <a mat-button [routerLink]="'/'"> Overview </a>
         <a mat-button (click)="sidenav.toggle()"> Libraries </a>
 
 
@@ -52,7 +52,6 @@
       <a [routerLink]="'/view/WissenschaftlicheBibliothekKlinikumGroßhadern'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>Wissenschaftliche Bibliothek Klinikum Großhadern </a>
       <a [routerLink]="'/view/FBBiologieundBiomedizin(Präsenzbestand)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Präsenzbestand) </a>
       <a [routerLink]="'/view/FBBiologieundBiomedizin(Lehrbuchsammlung)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Lehrbuchsammlung)" </a>
-
       <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Close</a>
 
     </mat-nav-list>
