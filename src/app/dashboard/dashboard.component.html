@@ -16,7 +16,7 @@
           <div class="card-body">
             <div class="container-fluid" >
 
-              <pinch-zoom [properties]="zoomProperties">
+              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
                 <div class="svg" >
                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
                       <div  [innerHTML]="svgCurrentAll" ></div>
@@ -31,7 +31,7 @@
 
         </div>
       </div>
-      <div class="col-md-4 col-xs" style=" z-index: -1; position:relative;">
+      <div class="col-md-4 col-xs" style=" z-index: 1; position:relative;">
         <div class="shadow-sm card">
           <div class="card-header">
             Current capacity
@@ -39,7 +39,7 @@
           <div class="card-body">
             <div class="container-fluid">
 
-              <div *ngIf="afterEight">
+     <div *ngIf="afterEight">
 
               <div *ngFor="let bib of currentBibs" class="row">
 
@@ -62,7 +62,7 @@
                         </div>
                       </div>
                       <div class="col-sm">
-                        <a mat-button [routerLink]="'/view/' + bib.nameBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
+                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
                       </div>
                     </div>
                   </div>
@@ -90,7 +90,7 @@
                         </div>
                       </div>
                       <div class="col-sm">
-                        <a mat-button [routerLink]="'/view/' + bib.nameBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
+                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
                       </div>
                     </div>
                   </div>
@@ -99,8 +99,8 @@
 
               </div>
 
-              </div>
 
+          </div>
               <div *ngIf="!afterEight">
 
                 <div class="card text-white  bg-danger mb-2" style="width: 100%;">

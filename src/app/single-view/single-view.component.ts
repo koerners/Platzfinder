@@ -48,15 +48,15 @@ export class SingleViewComponent implements OnInit {
       this.apiService.getStatus().subscribe((res: any) => {
         let loadedBibs = res;
         var i;
-        this.lastUpdate = loadedBibs[0][4]
+        this.lastUpdate = loadedBibs[0][0]
 
         for (i = 0; i < loadedBibs.length; i++) {
 
-          if (loadedBibs[i][0] === this.title) {
-            this.bib.nameBib = loadedBibs[i][0];
-            this.bib.belegt = loadedBibs[i][1];
-            this.bib.frei = loadedBibs[i][2];
-            this.bib.beschraenkt = loadedBibs[i][3];
+          if (loadedBibs[i][2] === this.title) {
+            this.bib.nameBib = loadedBibs[i][1];
+            this.bib.belegt = loadedBibs[i][3];
+            this.bib.frei = loadedBibs[i][4];
+            this.bib.beschraenkt = loadedBibs[i][5];
             this.bib.warning = (this.bib.frei < 20);
             if (hour > 7 ) this.bib.open = true;
           }

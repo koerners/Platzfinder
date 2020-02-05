@@ -5,6 +5,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 class Bib {
   nameBib: string;
+  linkBib: string;
   belegt: number;
   frei: number;
   beschraenkt: number;
@@ -40,14 +41,15 @@ export class DashboardComponent implements OnInit {
 
     this.apiService.getStatus().subscribe((res: any) => {
       this.loadedBibs = res;
-      this.lastUpdate = this.loadedBibs[0][4]
+      this.lastUpdate = this.loadedBibs[0][0]
       var i;
       for (i = 0; i < this.loadedBibs.length; i++) {
         let bib = new Bib();
-        bib.nameBib = this.loadedBibs[i][0];
-        bib.belegt = this.loadedBibs[i][1];
-        bib.frei = this.loadedBibs[i][2];
-        bib.beschraenkt = this.loadedBibs[i][3];
+        bib.nameBib = this.loadedBibs[i][1];
+        bib.linkBib = this.loadedBibs[i][2];
+        bib.belegt = this.loadedBibs[i][3];
+        bib.frei = this.loadedBibs[i][4];
+        bib.beschraenkt = this.loadedBibs[i][5];
         bib.warning = (bib.frei < 20);
 
         this.currentBibs[i] = bib;
