@@ -35,6 +35,7 @@
     <mat-nav-list>
 
       <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Dashboard </a>
+
       <a [routerLink]="'/view/AllgemeinerLesesaal(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Allgemeiner Lesesaal (Zentralbibliothek)</a>
       <a [routerLink]="'/view/Cip-Pool1(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Cip-Pool 1 (Zentralbibliothek)</a>
       <a [routerLink]="'/view/Cip-Pool2(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>Cip-Pool 2 (Zentralbibliothek) </a>
@@ -52,6 +53,11 @@
       <a [routerLink]="'/view/WissenschaftlicheBibliothekKlinikumGroßhadern'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>Wissenschaftliche Bibliothek Klinikum Großhadern </a>
       <a [routerLink]="'/view/FBBiologieundBiomedizin(Präsenzbestand)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Präsenzbestand) </a>
       <a [routerLink]="'/view/FBBiologieundBiomedizin(Lehrbuchsammlung)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Lehrbuchsammlung)" </a>
+      <br>
+      <mat-divider></mat-divider>
+
+      <a [routerLink]="'/legal'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">import_contacts</i>Impressum & Datenschutzerklärung</a>
+
       <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Close</a>
 
     </mat-nav-list>

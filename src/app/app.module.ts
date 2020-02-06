@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { SingleViewComponent } from './single-view/single-view.component';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
+import { LegalComponent } from './legal/legal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    SingleViewComponent
+    SingleViewComponent,
+    LegalComponent
   ],
   imports: [
     BrowserModule,
