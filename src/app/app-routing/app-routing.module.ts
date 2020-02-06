@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'legal',
     component: LegalComponent,
   },
+  {
+    path: '**',
+    component: DashboardComponent,
+  },
 ];
 
 @NgModule({
