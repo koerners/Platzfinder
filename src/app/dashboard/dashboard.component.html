@@ -14,15 +14,14 @@
             Average occupancy today
           </div>
           <div class="card-body">
-            <div class="container-fluid" >
 
               <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-                <div class="svg" >
-                 <div *ngIf="isMobileLayout" style="height: 30px"></div>
-                      <div  [innerHTML]="svgCurrentToday" ></div>
+                <div class="container-fluid" >
+                <div class="svg" [innerHTML]="svgCurrentToday"  >
+                </div>
                 </div>
               </pinch-zoom>
-            </div>
+
           </div>
         </div>
 
@@ -33,15 +32,12 @@
             Current occupancy
           </div>
           <div class="card-body">
-            <div class="container-fluid" >
-
-              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-                <div class="svg" >
-                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
-                  <div  [innerHTML]="svgCurrentOcc" ></div>
+            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+              <div class="container-fluid" >
+                <div class="svg" [innerHTML]="svgCurrentOcc"  >
                 </div>
-              </pinch-zoom>
-            </div>
+              </div>
+            </pinch-zoom>
           </div>
         </div>
 
@@ -53,20 +49,14 @@
             Occupancy by library
           </div>
           <div class="card-body">
-            <div class="container-fluid" >
-
-              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-                <div class="svg" >
-                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
-                  <div  [innerHTML]="svgCurrentAll" ></div>
+            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+              <div class="container-fluid" >
+                <div class="svg" [innerHTML]="svgCurrentAll"  >
                 </div>
-              </pinch-zoom>
-            </div>
+              </div>
+            </pinch-zoom>
           </div>
         </div>
-
-
-
 
 
 

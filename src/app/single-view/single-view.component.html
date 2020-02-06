@@ -15,17 +15,12 @@
             Last 24 hours      </div>
           <div class="card-body">
 
-            <div class="container-fluid">
-
-              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-                <div class="svg">
-                  <div *ngIf="isMobileLayout" style="height: 30px"></div>
-                  <div  [innerHTML]="svgCurrent" ></div>
+            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+              <div class="container-fluid" >
+                <div class="svg" [innerHTML]="svgCurrent"  >
                 </div>
-              </pinch-zoom>
-
-
-            </div>
+              </div>
+            </pinch-zoom>
 
 
             </div>

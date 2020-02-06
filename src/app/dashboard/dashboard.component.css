@@ -1,4 +1,12 @@
-.svg {
-  min-height: 200px;
+.container {
+  width: 50%;
+  height: 0;
+  padding-top: 48%;
+  position: relative;
 }
 
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
