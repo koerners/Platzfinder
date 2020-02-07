@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../api.service';
 import {ActivatedRoute} from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {NgxMapboxGLModule} from "ngx-mapbox-gl";
 
 class Bib {
   nameBib: string;
@@ -20,6 +21,7 @@ class Bib {
 
 
 export class DashboardComponent implements OnInit {
+
 
   public isMobileLayout: boolean;
   svgCurrentAll: SafeHtml;

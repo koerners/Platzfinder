@@ -15,7 +15,7 @@ class Bib {
 @Component({
   selector: 'app-single-view',
   templateUrl: './single-view.component.html',
-  styleUrls: ['./single-view.component.css']
+  styleUrls: ['./single-view.component.css'],
 })
 export class SingleViewComponent implements OnInit {
    isMobileLayout: boolean;

@@ -6,17 +6,21 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { SingleViewComponent } from './single-view/single-view.component';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { LegalComponent } from './legal/legal.component';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import {LoadingScreenInterceptor} from "./loading.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SingleViewComponent,
-    LegalComponent
+    LegalComponent,
+    LoadingScreenComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +33,16 @@ import { LegalComponent } from './legal/legal.component';
     MatListModule,
     HttpClientModule,
     PinchZoomModule ,
+    NgxMapboxGLModule.withConfig({
+      accessToken: 'pk.eyJ1Ijoic3RlZmFua29lcm5lciIsImEiOiJjazZiYXJ2bG0wNzYwM29wYTZnaTM2cDNmIn0.xmbCOCDUqPX5UKt0dYIrcw'
+    }),
 
   ],
-  providers: [],
+  providers: [    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoadingScreenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
