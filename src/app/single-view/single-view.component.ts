@@ -24,6 +24,8 @@ export class SingleViewComponent implements OnInit {
   bib: Bib;
   public lastUpdate: any;
   zoomProperties: any;
+  avgByWkday: any;
+  lastWeek: any;
 
 
 
@@ -41,6 +43,14 @@ export class SingleViewComponent implements OnInit {
       this.bib = new Bib();
       this.apiService.getBib(params.bib, "50").subscribe((res: any) => {
         this.svgCurrent = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+      this.apiService.getBib(params.bib, "100").subscribe((res: any) => {
+        this.lastWeek = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+      this.apiService.getAvgByWkByBib(params.bib).subscribe((res: any) => {
+        this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
       });
 
 

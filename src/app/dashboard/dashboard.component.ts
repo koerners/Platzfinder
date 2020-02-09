@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
   zoomProperties: any;
   svgCurrentToday: any;
   svgCurrentOcc: any;
+  avgWkDayAll: any;
 
 
 
@@ -77,6 +78,11 @@ export class DashboardComponent implements OnInit {
 
     this.apiService.getCurrentAll().subscribe((res: any) => {
       this.svgCurrentAll = this.sanitizer.bypassSecurityTrustHtml(res);
+
+    });
+
+    this.apiService.getAverageByWeekdayAll().subscribe((res: any) => {
+      this.avgWkDayAll = this.sanitizer.bypassSecurityTrustHtml(res);
 
     });
 

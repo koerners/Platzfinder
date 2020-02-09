@@ -29,6 +29,62 @@
 
           </div>
 
+
+
+
+        <div class="shadow-sm card mb-4">
+          <div class="card-header">
+            Average occupancy by weekday
+          </div>
+          <div class="card-body">
+
+            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+              <div class="container-fluid" >
+                <div class="svg" [innerHTML]="avgByWkday"  >
+                </div>
+              </div>
+            </pinch-zoom>
+
+
+          </div>
+
+        </div>
+
+
+
+        <div class="shadow-sm card mb-4">
+          <div class="card-header">
+Last week
+          </div>
+          <div class="card-body">
+
+            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+              <div class="container-fluid" >
+                <div class="svg" [innerHTML]="lastWeek"  >
+                </div>
+              </div>
+            </pinch-zoom>
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
       <div class="col-md-4 col-xs"  style=" z-index: 1; position:relative;">
         <div class="shadow-sm card">

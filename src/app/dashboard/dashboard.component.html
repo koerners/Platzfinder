@@ -29,6 +29,9 @@
 
 
 
+
+
+
         <div *ngIf="afterEight" class="shadow-sm card mb-4" >
           <div class="card-header">
             Current occupancy
@@ -40,6 +43,25 @@
                 </div>
               </div>
             </pinch-zoom>
+          </div>
+        </div>
+
+
+
+
+        <div class="shadow-sm card mb-4">
+          <div class="card-header">
+            Average occupancy by weekday
+          </div>
+          <div class="card-body">
+
+            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+              <div class="container-fluid" >
+                <div class="svg" [innerHTML]="avgWkDayAll"  >
+                </div>
+              </div>
+            </pinch-zoom>
+
           </div>
         </div>
 

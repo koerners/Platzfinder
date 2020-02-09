@@ -32,6 +32,15 @@ export class ApiService {
     return this.httpClient.get(this.apiURL + '/currentAvg', {responseType: 'text'});
   }
 
+  public getAverageByWeekdayAll() {
+    return this.httpClient.get(this.apiURL + '/avgWkDayAll', {responseType: 'text'});
+  }
+
+  public getAvgByWkByBib(name: string) {
+    return this.httpClient.get(this.apiURL + '/wkdayBib/' + name, {responseType: 'text'});
+  }
+
+
 
 }
 
