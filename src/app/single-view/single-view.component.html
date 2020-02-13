@@ -14,7 +14,7 @@
       <div class="col-md-8 col-xs">
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Last 24 hours      </div>
+            Auslastung der letzten 24 Stunden     </div>
           <div class="card-body">
 
             <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
@@ -34,7 +34,7 @@
 
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Average occupancy by weekday (all time)
+            Durchschnittliche Auslastung pro Wochentag
           </div>
           <div class="card-body">
 
@@ -54,7 +54,7 @@
 
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-Last week
+Auslastung der letzten Woche
           </div>
           <div class="card-body">
 
@@ -98,21 +98,19 @@ Last week
 
               <div *ngIf="!bib.warning" class="card text-white bg-success mb-2" style="width: 100%;" >
                 <div class="card-header"><i class="material-icons">local_library</i>
-                   Current Status</div>
+                   Aktueller Status</div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm">
-                      Available seats:<br> {{bib.frei}}%
+                      Verfügbare Plätze:<br> {{bib.frei}}%
                     </div>
                     <div class="col-sm">
                       <div *ngIf="bib.beschraenkt == 0">
                         <i class="material-icons">thumb_up_alt</i><br>
-                        Open to public
-                      </div>
+                        Öffentlich zugänglich                      </div>
                       <div *ngIf="bib.beschraenkt == 1">
                         <i class="material-icons">error</i><br>
-                        Faculty only
-                      </div>
+                        Nur für Fakultät                      </div>
                     </div>
                   </div>
                 </div>
@@ -126,17 +124,16 @@ Last week
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm">
-                      Available seats:<br> {{bib.frei}}%
+                      Verfügbare Plätze:<br> {{bib.frei}}%
                     </div>
                     <div class="col-sm">
                       <div *ngIf="bib.beschraenkt == 0">
                         <i class="material-icons">thumb_up_alt</i><br>
-                        Open to public
+                        Öffentlich zugänglich                      </div>
                       </div>
                       <div *ngIf="bib.beschraenkt == 1">
                         <i class="material-icons">error</i><br>
-                        Faculty only
-                      </div>
+                        Nur für Fakultät
                     </div>
 
                   </div>
@@ -149,11 +146,11 @@ Last week
 
                 <div class="card text-white  bg-danger mb-2" style="width: 100%;">
                   <div class="card-header"><i class="material-icons">local_library</i>
-                    Current Status</div>
+                    Aktueller Status</div>
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm">
-                        <h4>Closed</h4>
+                        <h4>Geschlossen</h4>
                       </div>
 
                     </div>

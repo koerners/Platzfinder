@@ -3,7 +3,7 @@
 
   <div class="container-fluid">
     <br>
-    <h2 >Overview</h2>
+    <h2 >Überblick</h2>
     <br>
 
 
@@ -13,7 +13,7 @@
       <div class="col-md-8 col-xs">
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Average occupancy today
+            Durchschnittliche Auslastung aller Bibliotheken
           </div>
           <div class="card-body">
 
@@ -34,7 +34,7 @@
 
         <div *ngIf="afterEight" class="shadow-sm card mb-4" >
           <div class="card-header">
-            Current occupancy
+           Aktuelle Auslastung
           </div>
           <div class="card-body">
             <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
@@ -51,7 +51,7 @@
 
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Average occupancy by weekday (all time)
+            Durchschnittliche Auslastung pro Wochentag
           </div>
           <div class="card-body">
 
@@ -70,7 +70,7 @@
 
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Occupancy by library
+           Aktuelle Auslastung pro Bibliothek
           </div>
           <div class="card-body">
             <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
@@ -107,7 +107,7 @@
       <div class="col-md-4 col-xs" style=" z-index: 1; position:relative;">
         <div class="shadow-sm card">
           <div class="card-header">
-            Current capacity
+            Aktuelle Kapazität
           </div>
           <div class="card-body">
             <div class="container-fluid">
@@ -122,20 +122,20 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm">
-                        Available seats:<br> {{bib.frei}}%
+                        Verfügbare Plätze:<br> {{bib.frei}}%
                       </div>
                       <div class="col-sm">
                         <div *ngIf="bib.beschraenkt == 0">
                           <i class="material-icons">thumb_up_alt</i><br>
-                          Open to public
+                          Öffentlich zugänglich
                         </div>
                         <div *ngIf="bib.beschraenkt == 1">
                           <i class="material-icons">error</i><br>
-                          Faculty only
+                          Nur für Fakultät
                         </div>
                       </div>
                       <div class="col-sm">
-                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
+                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Statistiken</a>
                       </div>
                     </div>
                   </div>
@@ -150,20 +150,20 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm">
-                        Available seats:<br> {{bib.frei}}%
+                        Verfügbare Plätze:<br> {{bib.frei}}%
                       </div>
                       <div class="col-sm">
                         <div *ngIf="bib.beschraenkt == 0">
                           <i class="material-icons">thumb_up_alt</i><br>
-                          Open to public
+                          Öffentlich zugänglich
                         </div>
                         <div *ngIf="bib.beschraenkt == 1">
                           <i class="material-icons">error</i><br>
-                          Faculty only
+                          Nur für Fakultät
                         </div>
                       </div>
                       <div class="col-sm">
-                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
+                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Statistiken</a>
                       </div>
                     </div>
                   </div>
@@ -178,11 +178,11 @@
 
                 <div class="card text-white  bg-danger mb-2" style="width: 100%;">
                   <div class="card-header"><i class="material-icons">local_library</i>
-                    Current Status</div>
+                    Aktueller Status</div>
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm">
-                        <h4>All libraries are closed!</h4>
+                        <h4>Alle Bibliotheken sind geschlossen.</h4>
                       </div>
 
                     </div>
@@ -197,7 +197,7 @@
 
             </div>
           </div>
-         <p>Last update: {{lastUpdate}}</p>  <br> <br>
+         <p>Letztes Update: {{lastUpdate}}</p>  <br> <br>
         </div>
 
       </div>

@@ -9,8 +9,8 @@
     <span class="menu-spacer"></span>
     <div *ngIf="!isMobileLayout">
       <div>
-        <a mat-button [routerLink]="'/'"> Overview </a>
-        <a mat-button (click)="sidenav.toggle()"> Libraries </a>
+        <a mat-button [routerLink]="'/'"> Überblick </a>
+        <a mat-button (click)="sidenav.toggle()"> Bibliotheken </a>
 
 
       </div>
@@ -34,7 +34,7 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
-      <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Dashboard </a>
+      <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Überblick </a>
 
       <a [routerLink]="'/view/AllgemeinerLesesaal(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Allgemeiner Lesesaal (Zentralbibliothek)</a>
       <a [routerLink]="'/view/Cip-Pool1(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Cip-Pool 1 (Zentralbibliothek)</a>
