@@ -105,4 +105,32 @@ export class DashboardComponent implements OnInit {
 
 
   }
+
+  averageLineChanged(value:string){
+    if (value == "1"){
+      this.apiService.getCurrentAvg().subscribe((res: any) => {
+        this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+    }else if (value == "2"){
+      this.apiService.lastYearAll().subscribe((res: any) => {
+        this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+    }
+  }
+
+  wochentagChanged(value:string){
+    if (value == "1"){
+      this.apiService.avgWkDayAllLastTwoWeeks().subscribe((res: any) => {
+        this.avgWkDayAll = this.sanitizer.bypassSecurityTrustHtml(res);
+
+      });
+
+    }else if (value == "2"){
+      this.apiService.getAverageByWeekdayAll().subscribe((res: any) => {
+        this.avgWkDayAll = this.sanitizer.bypassSecurityTrustHtml(res);
+
+      });
+
+    }
+  }
 }

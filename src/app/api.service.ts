@@ -36,11 +36,16 @@ export class ApiService {
     return this.httpClient.get(this.apiURL + '/avgWkDayAll', {responseType: 'text'});
   }
 
+  public avgWkDayAllLastTwoWeeks() {
+    return this.httpClient.get(this.apiURL + '/avgWkDayAllLastTwoWeeks', {responseType: 'text'});
+  }
+
   public getAvgByWkByBib(name: string) {
     return this.httpClient.get(this.apiURL + '/wkdayBib/' + name, {responseType: 'text'});
   }
 
-
-
+  public lastYearAll() {
+    return this.httpClient.get(this.apiURL + '/lastYearAll' ,{responseType: 'text'});
+  }
 }
 
