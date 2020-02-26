@@ -14,7 +14,24 @@
       <div class="col-md-8 col-xs">
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Auslastung der letzten 24 Stunden     </div>
+            <div class="row">
+              <div class="col-sm"></div>
+              <div class="col-sm">
+                Auslastung der letzten 24 Stunden
+              </div>
+              <div class="col-sm">
+                <div *ngIf="!isMobileLayout" style="display: flex; justify-content: flex-end">
+                  <select #averageLine (change)='averageLineChanged(averageLine.value)'> >
+                    <option value="1" selected>Heute</option>
+                    <option value="2">Letzte Woche</option>
+                    <option value="3">Letztes Jahr</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <div class="card-body">
 
             <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
@@ -23,9 +40,18 @@
                 </div>
               </div>
             </pinch-zoom>
-
-
             </div>
+
+
+          <div *ngIf="isMobileLayout" class="card-footer">
+            <select #averageLine (change)='averageLineChanged(averageLine.value)'> >
+              <option value="1" selected>Heute</option>
+              <option value="2">Letzte Woche</option>
+              <option value="3">Letztes Jahr</option>
+            </select>
+          </div>
+
+
 
           </div>
 
@@ -34,7 +60,21 @@
 
         <div class="shadow-sm card mb-4">
           <div class="card-header">
-            Durchschnittliche Auslastung pro Wochentag
+            <div class="row">
+              <div class="col-sm"></div>
+              <div class="col-sm">
+                Durchschnittliche Auslastung pro Wochentag
+              </div>
+              <div class="col-sm">
+                <div *ngIf="!isMobileLayout" style="display: flex; justify-content: flex-end">
+                  <select #byWeekday (change)='weekdayChanged(byWeekday.value)'> >
+                    <option value="1" selected>Letzte zwei Wochen</option>
+                    <option value="2">Insgesamt</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div class="card-body">
 
@@ -45,45 +85,15 @@
               </div>
             </pinch-zoom>
 
-
+          </div>
+          <div *ngIf="isMobileLayout" class="card-footer" >
+            <select #byWeekday (change)='weekdayChanged(byWeekday.value)'> >
+              <option value="1" selected>Letzte zwei Wochen</option>
+              <option value="2">Insgesamt</option>
+            </select>
           </div>
 
         </div>
-
-
-
-        <div class="shadow-sm card mb-4">
-          <div class="card-header">
-Auslastung der letzten Woche
-          </div>
-          <div class="card-body">
-
-            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-              <div class="container-fluid" >
-                <div class="svg" [innerHTML]="lastWeek"  >
-                </div>
-              </div>
-            </pinch-zoom>
-
-
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
       <div class="col-md-4 col-xs"  style=" z-index: 1; position:relative;">

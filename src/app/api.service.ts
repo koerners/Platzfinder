@@ -47,5 +47,14 @@ export class ApiService {
   public lastYearAll() {
     return this.httpClient.get(this.apiURL + '/lastYearAll' ,{responseType: 'text'});
   }
+
+  public lastYearBib(name: string) {
+    return this.httpClient.get(this.apiURL + '/lastYearBib/' + name, {responseType: 'text'});
+  }
+
+  public wkdayBibLastTwoWeeks(name: string) {
+    return this.httpClient.get(this.apiURL + '/wkdayBibLastTwoWeeks/' + name, {responseType: 'text'});
+  }
+
 }
 
