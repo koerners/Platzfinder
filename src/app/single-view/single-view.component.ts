@@ -26,6 +26,8 @@ export class SingleViewComponent implements OnInit {
   zoomProperties: any;
   avgByWkday: any;
   lastWeek: any;
+  public xkcdLink: HTMLImageElement;
+  public xkcdTitle: any;
 
 
 
@@ -50,6 +52,11 @@ export class SingleViewComponent implements OnInit {
         this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
       });
 
+      this.apiService.getXkcd().subscribe((res: any) => {
+          this.xkcdLink = res.img;
+          this.xkcdTitle= res.title;
+
+      });
 
       this.apiService.getStatus().subscribe((res: any) => {
         let loadedBibs = res;

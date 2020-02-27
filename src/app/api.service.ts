@@ -6,9 +6,8 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-    //apiURL = 'https://api.skoerner.com:4343';
-   apiURL = 'http://localhost:8080';
-
+  apiURL = 'https://api2.platzfinder.com';
+  // apiURL = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -54,6 +53,10 @@ export class ApiService {
 
   public wkdayBibLastTwoWeeks(name: string) {
     return this.httpClient.get(this.apiURL + '/wkdayBibLastTwoWeeks/' + name, {responseType: 'text'});
+  }
+
+  public getXkcd() {
+    return this.httpClient.get('https://xkcd.now.sh/?comic=latest', {responseType: 'json'});
   }
 
 }
