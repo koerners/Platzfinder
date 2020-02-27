@@ -26,6 +26,8 @@ export class SingleViewComponent implements OnInit {
   zoomProperties: any;
   avgByWkday: any;
   lastWeek: any;
+  public xkcdLink: HTMLImageElement;
+  public xkcdTitle: any;
 
 
 
@@ -45,15 +47,17 @@ export class SingleViewComponent implements OnInit {
         this.svgCurrent = this.sanitizer.bypassSecurityTrustHtml(res);
       });
 
-      this.apiService.getBib(params.bib, "100").subscribe((res: any) => {
-        this.lastWeek = this.sanitizer.bypassSecurityTrustHtml(res);
-      });
 
-      this.apiService.getAvgByWkByBib(params.bib).subscribe((res: any) => {
+
+      this.apiService.wkdayBibLastTwoWeeks(this.title).subscribe((res: any) => {
         this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
       });
 
+      this.apiService.getXkcd().subscribe((res: any) => {
+          this.xkcdLink = res.img;
+          this.xkcdTitle= res.title;
 
+      });
 
       this.apiService.getStatus().subscribe((res: any) => {
         let loadedBibs = res;
@@ -74,6 +78,11 @@ export class SingleViewComponent implements OnInit {
         }
       });
 
+      this.apiService.bibInfo(params.bib).subscribe((res: any) => {
+        this.bib.nameBib = res;
+      });
+
+
 
 
     })
@@ -90,5 +99,38 @@ export class SingleViewComponent implements OnInit {
     }
 
 
+  }
+
+  averageLineChanged(value:string){
+    if (value == "1"){
+      this.apiService.getBib(this.title, "50").subscribe((res: any) => {
+        this.svgCurrent = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+    }else if (value == "2"){
+      this.apiService.getBib(this.title, "100").subscribe((res: any) => {
+        this.svgCurrent = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+    }else if (value == "3"){
+      this.apiService.lastYearBib(this.title).subscribe((res: any) => {
+        this.svgCurrent = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+    }
+  }
+  weekdayChanged(value:string){
+    if (value == "1"){
+
+      this.apiService.wkdayBibLastTwoWeeks(this.title).subscribe((res: any) => {
+        this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+    }else if (value == "2"){
+      this.apiService.getAvgByWkByBib(this.title).subscribe((res: any) => {
+        this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
+
+    }
   }
 }

@@ -1,6 +1,7 @@
 
 
 <mat-toolbar color="primary">
+
   <mat-toolbar-row>
     <button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
@@ -9,14 +10,11 @@
     <span class="menu-spacer"></span>
     <div *ngIf="!isMobileLayout">
       <div>
-        <a mat-button [routerLink]="'/'"> Overview </a>
-        <a mat-button (click)="sidenav.toggle()"> Libraries </a>
-
+        <a mat-button [routerLink]="'/'"> Überblick </a>
+        <a mat-button (click)="sidenav.toggle()"> Bibliotheken </a>
 
       </div>
     </div>
-
-
 
 
   </mat-toolbar-row>
@@ -34,7 +32,7 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
-      <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Dashboard </a>
+      <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Überblick </a>
 
       <a [routerLink]="'/view/AllgemeinerLesesaal(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Allgemeiner Lesesaal (Zentralbibliothek)</a>
       <a [routerLink]="'/view/Cip-Pool1(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Cip-Pool 1 (Zentralbibliothek)</a>
@@ -55,10 +53,13 @@
       <a [routerLink]="'/view/FBBiologieundBiomedizin(Lehrbuchsammlung)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i>FB Biologie und Biomedizin (Lehrbuchsammlung) </a>
       <br>
       <mat-divider></mat-divider>
+
+
+      <a mat-list-item href="https://www.ub.uni-muenchen.de/arbeiten/oeffnungszeiten/index.html" target="_blank"><i class="material-icons">open_in_new</i>Öffnungszeiten</a>
       <a href="https://github.com/koerners/Platzfinder" target="_blank" mat-list-item (click)="sidenav.toggle()"> <img src="../assets/github.svg" alt="Git" height="24px">  GitHub </a>
       <a [routerLink]="'/legal'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">import_contacts</i>Impressum & Datenschutzerklärung</a>
 
-      <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Close</a>
+      <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Schließen</a>
 
     </mat-nav-list>
   </mat-sidenav>

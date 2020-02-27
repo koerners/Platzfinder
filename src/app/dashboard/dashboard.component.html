@@ -1,147 +1,176 @@
+<div class="container-fluid">
+  <br>
+  <h2>Überblick</h2>
+  <br>
 
 
+  <div class="row">
 
-  <div class="container-fluid">
-    <br>
-    <h2 >Overview</h2>
-    <br>
-
-
-
-    <div class="row">
-
-      <div class="col-md-8 col-xs">
-        <div class="shadow-sm card mb-4">
-          <div class="card-header">
-            Average occupancy today
-          </div>
-          <div class="card-body">
-
-              <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-                <div class="container-fluid" >
-                <div class="svg" [innerHTML]="svgCurrentToday"  >
-                </div>
-                </div>
-              </pinch-zoom>
-
+    <div class="col-md-8 col-xs">
+      <div class="shadow-sm card mb-4">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+              Durchschnittliche Auslastung aller Bibliotheken
+            </div>
+            <div class="col-sm">
+              <div *ngIf="!isMobileLayout" style="display: flex; justify-content: flex-end">
+                <select #averageLine (change)='averageLineChanged(averageLine.value)'> >
+                  <option value="1" selected>Heute</option>
+                  <option value="2">Letztes Jahr</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="card-body">
 
-
-
-
-
-
-        <div *ngIf="afterEight" class="shadow-sm card mb-4" >
-          <div class="card-header">
-            Current occupancy
-          </div>
-          <div class="card-body">
-            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-              <div class="container-fluid" >
-                <div class="svg" [innerHTML]="svgCurrentOcc"  >
-                </div>
+          <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+            <div class="container-fluid">
+              <div class="svg" [innerHTML]="svgCurrentToday">
               </div>
-            </pinch-zoom>
-          </div>
+            </div>
+          </pinch-zoom>
+
         </div>
 
-
-
-
-        <div class="shadow-sm card mb-4">
-          <div class="card-header">
-            Average occupancy by weekday (all time)
-          </div>
-          <div class="card-body">
-
-            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-              <div class="container-fluid" >
-                <div class="svg" [innerHTML]="avgWkDayAll"  >
-                </div>
-              </div>
-            </pinch-zoom>
-
-          </div>
+        <div *ngIf="isMobileLayout" class="card-footer">
+          <select #averageLine (change)='averageLineChanged(averageLine.value)'> >
+            <option value="1" selected>Heute</option>
+            <option value="2">Letztes Jahr</option>
+          </select>
         </div>
-
-
-
-
-        <div class="shadow-sm card mb-4">
-          <div class="card-header">
-            Occupancy by library
-          </div>
-          <div class="card-body">
-            <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-              <div class="container-fluid" >
-                <div class="svg" [innerHTML]="svgCurrentAll"  >
-                </div>
-              </div>
-            </pinch-zoom>
-          </div>
-        </div>
-
-
-
-<!--        <div class="shadow-sm card mb-4">
-          <div class="card-header">
-            Locations
-          </div>
-          <div class="card-body" style="text-align: left;">
-
-              <div id="map" style="height: 400px">
-            <mgl-map
-              [style]="'mapbox://styles/mapbox/streets-v9'"
-              [zoom]="[12]"
-              [center]="[11.58, 48.15]"
-            ></mgl-map>
-              </div>
-
-          </div>
-        </div>-->
-
-
 
       </div>
-      <div class="col-md-4 col-xs" style=" z-index: 1; position:relative;">
-        <div class="shadow-sm card">
-          <div class="card-header">
-            Current capacity
-          </div>
-          <div class="card-body">
-            <div class="container-fluid">
 
-     <div *ngIf="afterEight">
+
+      <div *ngIf="afterEight" class="shadow-sm card mb-4">
+        <div class="card-header">
+          Aktuelle Auslastung
+        </div>
+        <div class="card-body">
+          <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+            <div class="container-fluid">
+              <div class="svg" [innerHTML]="svgCurrentOcc">
+              </div>
+            </div>
+          </pinch-zoom>
+        </div>
+      </div>
+
+
+      <div class="shadow-sm card mb-4">
+        <div class="card-header">
+
+          <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+              Durchschnittliche Auslastung pro Wochentag
+            </div>
+            <div class="col-sm">
+              <div *ngIf="!isMobileLayout" style="display: flex; justify-content: flex-end">
+                <select #wochentag (change)='wochentagChanged(wochentag.value)'> >
+                  <option value="1" selected>Letzten zwei Wochen</option>
+                  <option value="2">Insgesamt</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+
+          <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+            <div class="container-fluid">
+              <div class="svg" [innerHTML]="avgWkDayAll">
+              </div>
+            </div>
+          </pinch-zoom>
+
+        </div>
+
+        <div *ngIf="isMobileLayout" class="card-footer">
+          <select #wochentag (change)='wochentagChanged(wochentag.value)'> >
+            <option value="1" selected>Letzten zwei Wochen</option>
+            <option value="2">Insgesamt</option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <div class="shadow-sm card mb-4">
+        <div class="card-header">
+          Aktuelle Auslastung pro Bibliothek
+        </div>
+        <div class="card-body">
+          <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+            <div class="container-fluid">
+              <div class="svg" [innerHTML]="svgCurrentAll">
+              </div>
+            </div>
+          </pinch-zoom>
+        </div>
+      </div>
+
+
+      <!--        <div class="shadow-sm card mb-4">
+                <div class="card-header">
+                  Locations
+                </div>
+                <div class="card-body" style="text-align: left;">
+
+                    <div id="map" style="height: 400px">
+                  <mgl-map
+                    [style]="'mapbox://styles/mapbox/streets-v9'"
+                    [zoom]="[12]"
+                    [center]="[11.58, 48.15]"
+                  ></mgl-map>
+                    </div>
+
+                </div>
+              </div>-->
+
+
+    </div>
+    <div class="col-md-4 col-xs" style=" z-index: 1; position:relative;">
+      <div class="shadow-sm card">
+        <div class="card-header">
+          Aktuelle Kapazität
+        </div>
+        <div class="card-body">
+          <div class="container-fluid">
+
+            <div *ngIf="afterEight">
 
               <div *ngFor="let bib of currentBibs" class="row">
 
-                <div *ngIf="!bib.warning" class="card text-white bg-success mb-2" style="width: 100%;" >
+                <div *ngIf="!bib.warning" class="card text-white bg-success mb-2" style="width: 100%;">
                   <div class="card-header"><i class="material-icons">local_library</i>
                     {{bib.nameBib}}</div>
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm">
-                        Available seats:<br> {{bib.frei}}%
+                        Freie Plätze:<br> {{bib.frei}}%
                       </div>
                       <div class="col-sm">
                         <div *ngIf="bib.beschraenkt == 0">
                           <i class="material-icons">thumb_up_alt</i><br>
-                          Open to public
+                          Öffentlich zugänglich
                         </div>
                         <div *ngIf="bib.beschraenkt == 1">
                           <i class="material-icons">error</i><br>
-                          Faculty only
+                          Nur für Fakultät
                         </div>
                       </div>
                       <div class="col-sm">
-                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
+                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i>
+                          Mehr</a>
                       </div>
                     </div>
                   </div>
                 </div>
-
-
 
 
                 <div *ngIf="bib.warning" class="card text-white  bg-danger mb-2" style="width: 100%;">
@@ -150,20 +179,21 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm">
-                        Available seats:<br> {{bib.frei}}%
+                        Freie Plätze:<br> {{bib.frei}}%
                       </div>
                       <div class="col-sm">
                         <div *ngIf="bib.beschraenkt == 0">
                           <i class="material-icons">thumb_up_alt</i><br>
-                          Open to public
+                          Öffentlich zugänglich
                         </div>
                         <div *ngIf="bib.beschraenkt == 1">
                           <i class="material-icons">error</i><br>
-                          Faculty only
+                          Nur für Fakultät
                         </div>
                       </div>
                       <div class="col-sm">
-                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i> Stats</a>
+                        <a mat-button [routerLink]="'/view/' + bib.linkBib"><i class="material-icons">insert_chart_outlined</i>
+                          Statistiken</a>
                       </div>
                     </div>
                   </div>
@@ -171,33 +201,35 @@
 
 
               </div>
-
-
-          </div>
-              <div *ngIf="!afterEight">
-
-                <div class="card text-white  bg-danger mb-2" style="width: 100%;">
-                  <div class="card-header"><i class="material-icons">local_library</i>
-                    Current Status</div>
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-sm">
-                        <h4>All libraries are closed!</h4>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-
-
-              </div>
-
 
 
             </div>
+            <div *ngIf="!afterEight">
+
+              <div class="card text-white  bg-danger mb-2" style="width: 100%;">
+                <div class="card-header"><i class="material-icons">local_library</i>
+                  Aktueller Status
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm">
+                      <h4>Alle Bibliotheken sind geschlossen.</h4>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
           </div>
-         <p>Last update: {{lastUpdate}}</p>  <br> <br>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="btn-group btn-group-sm">
+            Letztes Update: {{lastUpdate}}
+          </div>
         </div>
 
       </div>
