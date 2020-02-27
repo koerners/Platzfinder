@@ -55,6 +55,10 @@ export class ApiService {
     return this.httpClient.get(this.apiURL + '/wkdayBibLastTwoWeeks/' + name, {responseType: 'text'});
   }
 
+  public bibInfo(name: string) {
+    return this.httpClient.get(this.apiURL + '/bibInfo/' + name, {responseType: 'text'});
+  }
+
   public getXkcd() {
     return this.httpClient.get('https://xkcd.now.sh/?comic=latest', {responseType: 'json'});
   }

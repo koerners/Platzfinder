@@ -48,6 +48,7 @@ export class SingleViewComponent implements OnInit {
       });
 
 
+
       this.apiService.wkdayBibLastTwoWeeks(this.title).subscribe((res: any) => {
         this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
       });
@@ -76,6 +77,11 @@ export class SingleViewComponent implements OnInit {
 
         }
       });
+
+      this.apiService.bibInfo(params.bib).subscribe((res: any) => {
+        this.bib.nameBib = res;
+      });
+
 
 
 
