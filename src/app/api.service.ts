@@ -14,29 +14,35 @@ export class ApiService {
 
 
   public getStatus() {
-    return this.httpClient.get(this.apiURL+'/status' , {responseType: 'json'});
+    return this.httpClient.get(this.apiURL + '/status', {responseType: 'json'});
   }
+
   public getBib(name: string, entries: string) {
     return this.httpClient.get(this.apiURL + '/bib/' + name + '/' + entries, {responseType: 'text'});
   }
 
   public getCurrentAll() {
-    return this.httpClient.get(this.apiURL + '/allGraph', {responseType: 'text'});
+    return this.apiURL + '/static/allCurrent.svg';
   }
 
   public getBarCurrent() {
-    return this.httpClient.get(this.apiURL + '/currentBar', {responseType: 'text'});
+    return this.apiURL + '/static/horBar.svg.svg';
   }
+
   public getCurrentAvg() {
-    return this.httpClient.get(this.apiURL + '/currentAvg', {responseType: 'text'});
+    return this.apiURL + '/static/halfDay.svg.svg';
+  }
+
+  public getTomorrow() {
+    return this.apiURL + '/static/halfDay_24.svg.svg';
   }
 
   public getAverageByWeekdayAll() {
-    return this.httpClient.get(this.apiURL + '/avgWkDayAll', {responseType: 'text'});
+    return this.apiURL + '/static/avgByWeekday.svg';
   }
 
   public avgWkDayAllLastTwoWeeks() {
-    return this.httpClient.get(this.apiURL + '/avgWkDayAllLastTwoWeeks', {responseType: 'text'});
+    return this.apiURL + '/static/avgLastTwo.svg.svg';
   }
 
   public getAvgByWkByBib(name: string) {
@@ -44,7 +50,7 @@ export class ApiService {
   }
 
   public lastYearAll() {
-    return this.httpClient.get(this.apiURL + '/lastYearAll' ,{responseType: 'text'});
+    return this.httpClient.get(this.apiURL + '/lastYearAll', {responseType: 'text'});
   }
 
   public lastYearBib(name: string) {
@@ -59,9 +65,10 @@ export class ApiService {
     return this.httpClient.get(this.apiURL + '/bibInfo/' + name, {responseType: 'text'});
   }
 
-  public getXkcd() {
-    return this.httpClient.get('https://xkcd.now.sh/?comic=latest', {responseType: 'json'});
+
+  public getJoke() {
+    return this.httpClient.get('https://official-joke-api.appspot.com/random_joke', {responseType: 'json'});
   }
 
-}
 
+}

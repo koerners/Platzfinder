@@ -3,7 +3,6 @@
   <h2>Überblick</h2>
   <br>
 
-
   <div class="row">
 
     <div class="col-md-8 col-xs">
@@ -18,6 +17,7 @@
               <div *ngIf="!isMobileLayout" style="display: flex; justify-content: flex-end">
                 <select #averageLine (change)='averageLineChanged(averageLine.value)'> >
                   <option value="1" selected>Heute</option>
+                  <option value="3">Morgen</option>
                   <option value="2">Letztes Jahr</option>
                 </select>
               </div>
@@ -28,8 +28,8 @@
 
           <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
             <div class="container-fluid">
-              <div class="svg" [innerHTML]="svgCurrentToday">
-              </div>
+              <img *ngIf="avgFromStatic" [src]="svgCurrentToday">
+              <div *ngIf="!avgFromStatic" class="svg" [innerHTML]="svgCurrentToday"> </div>
             </div>
           </pinch-zoom>
 
@@ -38,27 +38,12 @@
         <div *ngIf="isMobileLayout" class="card-footer">
           <select #averageLine (change)='averageLineChanged(averageLine.value)'> >
             <option value="1" selected>Heute</option>
+            <option value="3">Morgen</option>
             <option value="2">Letztes Jahr</option>
           </select>
         </div>
 
       </div>
-
-
-      <div *ngIf="afterEight" class="shadow-sm card mb-4">
-        <div class="card-header">
-          Aktuelle Auslastung
-        </div>
-        <div class="card-body">
-          <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
-            <div class="container-fluid">
-              <div class="svg" [innerHTML]="svgCurrentOcc">
-              </div>
-            </div>
-          </pinch-zoom>
-        </div>
-      </div>
-
 
       <div class="shadow-sm card mb-4">
         <div class="card-header">
@@ -83,8 +68,7 @@
 
           <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
             <div class="container-fluid">
-              <div class="svg" [innerHTML]="avgWkDayAll">
-              </div>
+              <img [src]="avgWkDayAll">
             </div>
           </pinch-zoom>
 
@@ -99,16 +83,30 @@
 
       </div>
 
+<!--
 
-      <div class="shadow-sm card mb-4">
+      <div *ngIf="afterEight" class="shadow-sm card mb-4">
         <div class="card-header">
-          Aktuelle Auslastung pro Bibliothek
+          Aktuelle Auslastung
         </div>
         <div class="card-body">
           <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
             <div class="container-fluid">
-              <div class="svg" [innerHTML]="svgCurrentAll">
-              </div>
+              <img [src]="svgCurrentOcc">
+            </div>
+          </pinch-zoom>
+        </div>
+      </div>
+-->
+
+      <div class="shadow-sm card mb-4">
+        <div class="card-header">
+          Auslastung je Bibliothek
+        </div>
+        <div class="card-body">
+          <pinch-zoom [properties]="zoomProperties" style=" z-index: 2; position:relative;">
+            <div class="container-fluid">
+              <img [src]="svgCurrentAll">
             </div>
           </pinch-zoom>
         </div>
@@ -135,7 +133,7 @@
 
     </div>
     <div class="col-md-4 col-xs" style=" z-index: 1; position:relative;">
-      <div class="shadow-sm card">
+      <div class="shadow-sm card mb-4">
         <div class="card-header">
           Aktuelle Kapazität
         </div>
@@ -229,6 +227,20 @@
         <div class="card-footer text-muted">
           <div class="btn-group btn-group-sm">
             Letztes Update: {{lastUpdate}}
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div class="shadow-sm card mb-4">
+
+        <div class="card-body">
+          <div class="container-fluid">
+            {{setup}}
+            {{punchline}}
+
           </div>
         </div>
 

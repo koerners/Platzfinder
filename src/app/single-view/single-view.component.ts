@@ -26,9 +26,8 @@ export class SingleViewComponent implements OnInit {
   zoomProperties: any;
   avgByWkday: any;
   lastWeek: any;
-  public xkcdLink: HTMLImageElement;
-  public xkcdTitle: any;
-
+  public setup: string;
+  public punchline: string;
 
 
   constructor(private apiService: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
@@ -53,9 +52,9 @@ export class SingleViewComponent implements OnInit {
         this.avgByWkday = this.sanitizer.bypassSecurityTrustHtml(res);
       });
 
-      this.apiService.getXkcd().subscribe((res: any) => {
-          this.xkcdLink = res.img;
-          this.xkcdTitle= res.title;
+      this.apiService.getJoke().subscribe((res: any) => {
+        this.setup = res.setup;
+        this.punchline = res.punchline;
 
       });
 

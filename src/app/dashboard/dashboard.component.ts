@@ -33,6 +33,10 @@ export class DashboardComponent implements OnInit {
   svgCurrentToday: any;
   svgCurrentOcc: any;
   avgWkDayAll: any;
+  public avgFromStatic = true;
+  public setup: string;
+  public punchline: string;
+
 
 
 
@@ -65,26 +69,25 @@ export class DashboardComponent implements OnInit {
     });
 
 
-    this.apiService.getCurrentAvg().subscribe((res: any) => {
-      this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
+    this.svgCurrentToday = this.apiService.getCurrentAvg();
+
+    this.svgCurrentOcc = this.apiService.getBarCurrent();
+
+    this.svgCurrentAll = this.apiService.getCurrentAll()
+
+    this.avgWkDayAll =this.apiService.avgWkDayAllLastTwoWeeks();
+
+
+
+
+
+    this.apiService.getJoke().subscribe((res: any) => {
+      this.setup = res.setup;
+      this.punchline = res.punchline;
 
     });
 
 
-    this.apiService.getBarCurrent().subscribe((res: any) => {
-      this.svgCurrentOcc = this.sanitizer.bypassSecurityTrustHtml(res);
-
-    });
-
-    this.apiService.getCurrentAll().subscribe((res: any) => {
-      this.svgCurrentAll = this.sanitizer.bypassSecurityTrustHtml(res);
-
-    });
-
-    this.apiService.getAverageByWeekdayAll().subscribe((res: any) => {
-      this.avgWkDayAll = this.sanitizer.bypassSecurityTrustHtml(res);
-
-    });
 
 
     };
@@ -103,33 +106,32 @@ export class DashboardComponent implements OnInit {
       this.zoomProperties= {backgroundColor: "white"};
     }
 
-
   }
 
   averageLineChanged(value:string){
     if (value == "1"){
-      this.apiService.getCurrentAvg().subscribe((res: any) => {
-        this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
-      });
+      this.avgFromStatic = true;
+        this.svgCurrentToday = this.apiService.getCurrentAvg();
     }else if (value == "2"){
+      this.avgFromStatic = false;
       this.apiService.lastYearAll().subscribe((res: any) => {
         this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
       });
+    }
+    else if (value == "3"){
+      this.avgFromStatic = true;
+      this.svgCurrentToday = this.apiService.getTomorrow();
     }
   }
 
   wochentagChanged(value:string){
     if (value == "1"){
-      this.apiService.avgWkDayAllLastTwoWeeks().subscribe((res: any) => {
-        this.avgWkDayAll = this.sanitizer.bypassSecurityTrustHtml(res);
+      this.avgWkDayAll =this.apiService.avgWkDayAllLastTwoWeeks();
 
-      });
 
     }else if (value == "2"){
-      this.apiService.getAverageByWeekdayAll().subscribe((res: any) => {
-        this.avgWkDayAll = this.sanitizer.bypassSecurityTrustHtml(res);
+        this.avgWkDayAll =this.apiService.getAverageByWeekdayAll();
 
-      });
 
     }
   }
