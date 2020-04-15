@@ -12,6 +12,9 @@ export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
 
+  public isConnected() {
+    return this.httpClient.get(this.apiURL + '/', {responseType: 'text'});
+  }
 
   public getStatus() {
     return this.httpClient.get(this.apiURL + '/status', {responseType: 'json'});

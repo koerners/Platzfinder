@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import {SingleViewComponent} from '../single-view/single-view.component';
 import {LegalComponent} from "../legal/legal.component";
+import {StatsComponent} from '../stats/stats.component';
+import {OfflineComponent} from '../offline/offline.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path: 'legal',
     component: LegalComponent,
+  },
+  {
+    path: 'stats',
+    component: StatsComponent,
+  },
+  {
+    path: 'offline',
+    component: OfflineComponent,
   },
   {
     path: '**',

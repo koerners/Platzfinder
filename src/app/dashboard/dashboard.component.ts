@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../api.service';
 import {ActivatedRoute} from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import {NgxMapboxGLModule} from "ngx-mapbox-gl";
 
 class Bib {
   nameBib: string;
@@ -45,12 +44,18 @@ export class DashboardComponent implements OnInit {
     const hour = d.getHours();
     this.afterEight = (hour >7);
 
-
-
-
     this.apiService.getStatus().subscribe((res: any) => {
       this.loadedBibs = res;
-      this.lastUpdate = this.loadedBibs[0][0]
+      this.lastUpdate = this.loadedBibs[0][0];
+
+      let newDate = new Date(this.lastUpdate).getTime();
+      let todayDate = new Date(Date.parse(Date())).getTime();
+      let lastUpdated = (todayDate - newDate)/ (1000 * 3600 * 24);
+      if(lastUpdated>2){
+        this.afterEight = false;
+      }
+
+
       var i;
       for (i = 0; i < this.loadedBibs.length; i++) {
         let bib = new Bib();
@@ -69,13 +74,6 @@ export class DashboardComponent implements OnInit {
     });
 
 
-    this.svgCurrentToday = this.apiService.getCurrentAvg();
-
-    this.svgCurrentOcc = this.apiService.getBarCurrent();
-
-    this.svgCurrentAll = this.apiService.getCurrentAll()
-
-    this.avgWkDayAll =this.apiService.avgWkDayAllLastTwoWeeks();
 
 
 
@@ -100,39 +98,7 @@ export class DashboardComponent implements OnInit {
     window.onresize = () => this.isMobileLayout = window.innerWidth <= 991;
 
 
-    if(this.isMobileLayout){
-      this.zoomProperties= {backgroundColor: "white",  zoomControlScale: "3.1", overflow: "visible", 'double-tap-scale':"3.1", disableZoomControl: "never"};
-    }else {
-      this.zoomProperties= {backgroundColor: "white"};
-    }
 
   }
 
-  averageLineChanged(value:string){
-    if (value == "1"){
-      this.avgFromStatic = true;
-        this.svgCurrentToday = this.apiService.getCurrentAvg();
-    }else if (value == "2"){
-      this.avgFromStatic = false;
-      this.apiService.lastYearAll().subscribe((res: any) => {
-        this.svgCurrentToday = this.sanitizer.bypassSecurityTrustHtml(res);
-      });
-    }
-    else if (value == "3"){
-      this.avgFromStatic = true;
-      this.svgCurrentToday = this.apiService.getTomorrow();
-    }
-  }
-
-  wochentagChanged(value:string){
-    if (value == "1"){
-      this.avgWkDayAll =this.apiService.avgWkDayAllLastTwoWeeks();
-
-
-    }else if (value == "2"){
-        this.avgWkDayAll =this.apiService.getAverageByWeekdayAll();
-
-
-    }
-  }
 }

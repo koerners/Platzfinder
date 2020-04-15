@@ -20,6 +20,21 @@ ng serve
 ng build --prod
 ```
 
+### Android:
+
+1. 
+```
+export ANDROID_HOME=/home/stefan/Android/Sdk && export PATH=${PATH}:${ANDROID_HOME}/tools && export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+```
+2. 
+```
+ng build --prod --aot
+```
+3. 
+```
+cordova build --release android
+```
+
 ### Screenshots:
 
 ![Screenshot](https://github.com/koerners/Platzfinder/blob/master/screenshots/Bildschirmfoto%202020-02-13%20um%2016.49.50.png)

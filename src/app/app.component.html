@@ -8,14 +8,6 @@
     </button>
     <h1 style="color:white">LMU Platzfinder</h1>
     <span class="menu-spacer"></span>
-    <div *ngIf="!isMobileLayout">
-      <div>
-        <a mat-button [routerLink]="'/'"> Überblick </a>
-        <a mat-button (click)="sidenav.toggle()"> Bibliotheken </a>
-
-      </div>
-    </div>
-
 
   </mat-toolbar-row>
 <app-loading-screen></app-loading-screen>
@@ -26,13 +18,13 @@
 <router-outlet></router-outlet>
 
 
-
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
       <a [routerLink]="'/'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">dashboard</i> Überblick </a>
+      <a [routerLink]="'/stats'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">show_chart</i> Statistiken </a>
+      <mat-divider></mat-divider>
 
       <a [routerLink]="'/view/AllgemeinerLesesaal(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Allgemeiner Lesesaal (Zentralbibliothek)</a>
       <a [routerLink]="'/view/Cip-Pool1(Zentralbibliothek)'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">account_balance</i> Cip-Pool 1 (Zentralbibliothek)</a>
@@ -56,7 +48,7 @@
 
 
       <a mat-list-item href="https://www.ub.uni-muenchen.de/arbeiten/oeffnungszeiten/index.html" target="_blank"><i class="material-icons">open_in_new</i>Öffnungszeiten</a>
-      <a href="https://github.com/koerners/Platzfinder" target="_blank" mat-list-item (click)="sidenav.toggle()"> <img src="../assets/github.svg" alt="Git" height="24px">  GitHub </a>
+      <a href="https://github.com/koerners/Platzfinder" target="_blank" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">code</i> GitHub </a>
       <a [routerLink]="'/legal'" mat-list-item (click)="sidenav.toggle()"> <i class="material-icons">import_contacts</i>Impressum & Datenschutzerklärung</a>
 
       <a (click)="sidenav.toggle()" mat-list-item> <i class="material-icons">close</i>Schließen</a>

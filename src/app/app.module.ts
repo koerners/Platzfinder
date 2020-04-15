@@ -17,6 +17,8 @@ import { LegalComponent } from './legal/legal.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import {LoadingScreenInterceptor} from "./loading.interceptor";
+import { StatsComponent } from './stats/stats.component';
+import { OfflineComponent } from './offline/offline.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import {LoadingScreenInterceptor} from "./loading.interceptor";
     SingleViewComponent,
     LegalComponent,
     LoadingScreenComponent,
+    StatsComponent,
+    OfflineComponent,
   ],
   imports: [
     BrowserModule,
